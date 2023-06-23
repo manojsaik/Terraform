@@ -9,3 +9,7 @@ variable "instancetype" {
 variable "is_dev" {
   type = bool
 }
+
+variable "gittoken" {
+  type = string
+}

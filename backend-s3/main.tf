@@ -1,7 +1,7 @@
 terraform {
   backend "s3" {
-     key = "terraform/sam.terraform.tfstate"
-    bucket = "elasticbeanstalk-us-east-2-949620661336"
+     key = "terraform/sam.terraform.tfstate"   #keyname
+    bucket = "somebucket" #bucketname
     region = "us-east-2"
 
   }
