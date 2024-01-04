@@ -1,0 +1,35 @@
+yum install java
+readlink -f $(which java) | sed "s:bin/java::"
+
+export JAVA_HOME= 
+
+wget https://downloads.apache.org/tomcat/tomcat-9/v9.0.84/bin/apache-tomcat-9.0.84.zip.sha512
+unzip apache-tomcat-9.0.84.zip
+mv apache-tomcat-9.0.84 tomcat
+cd tomcat/bin
+./startup.sh
+
+/conf/tomcat-user.xml
+
+	  <role rolename="manager-gui"/>
+	  <role rolename="manager-script"/>
+	  <role rolename="manager-jmx"/>
+	  <role rolename="manager-status"/>
+	  <user username="admin" password="admin" roles="manager-gui, manager-script, manager-jmx, manager-status"/>
+	  <user username="deployer" password="deployer" roles="manager-script"/>
+	  <user username="tomcat" password="s3cret" roles="manager-gui"/>
+
+
+/webapps/manger/META-INF/context.xml 
+
+valves commented with <!--       --> 
+vi webapps/manager/META-INF/context.xml 
+vi webapps/host-manager/META-INF/context.xml 
+
+
+context.xml 
+
+comment the above the values param 
+
+
+deploy adapters: [tomcat9(credentialsId: '5edf32f9-52e7-4006-9327-1770dff6c003', path: '', url: 'http://18.191.103.170:8080/')], contextPath: null, war: '**/*.war'

@@ -16,7 +16,7 @@ terraform {
 
 # Configure the GitHub Provider
 provider "github" {
-  token = "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"
+  token = var.gittoken
 }
 resource "github_repository" "example" {
   name        = "tf-managed"

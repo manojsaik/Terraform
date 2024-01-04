@@ -3,7 +3,7 @@
 provider "aws" {
 
   region = var.region     #specify region
-  profile = "provide a profile name that has in creds file / or remove if it default"
+  profile = "infra-sandbox"
   shared_credentials_files = ["~/.aws/credentials"]  #save your creds in .aws/credentials file
 }
 
